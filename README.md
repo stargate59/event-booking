@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Supabase - Database
+To reset database so changes in migration scripts can be applied
+    - Make sure database is running 'supabase start'
+    - 'supabase db reset' this removes database and recreates in from migration scripts
+
+# Initial Project Database Setup - this makes myself the admin user (top-gun)
+    - see .env.local for query

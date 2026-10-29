@@ -28,11 +28,12 @@ export async function updateSession(request) {
     }
   );
 
-  const protectedRoutes = ["/profile", "/subscribe", "/dashboard"];
+  const protectedRoutes = ["/events/new", "/events/[eventId]/edit", "/schedule", "/staff"];
 
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    request.nextUrl.pathname.startsWith(route)
-  );
+  const isProtectedRoute = protectedRoutes.some((route) => {
+    const pathname = request.nextUrl.pathname;
+    return request.nextUrl.pathname.startsWith(route)
+});
 
   const user = await supabase.auth.getUser();
   if (isProtectedRoute  && user.error) {
