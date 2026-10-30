@@ -51,13 +51,10 @@ const getEventById = async (id) => {
 const createEvent = async (accountId, event) => {
   try {
     const client = await pool.connect();
-    const result = await client.query(createEventQuery, [
-      event.name,
-      event.description,
-      event.start_date,
-      event.end_date,
-      accountId,
-    ]);
+    const query = `INSERT INTO Events ( name, description, start_date, end_date, account_id) 
+    VALUES (${accountId.toString()}, ${event.name}, ${event.description}, ${event.start_date.toString()}, ${event.end_date.toString()})
+    RETURNING id, name, description, start_date, end_date, account_id`
+    const result = await client.query(query);
     client.release();
     console.log(result.rows);
     return result.rows;

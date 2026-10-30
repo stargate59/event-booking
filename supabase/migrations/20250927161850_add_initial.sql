@@ -36,7 +36,7 @@ CREATE TABLE events (
     id SERIAL PRIMARY KEY,
     account_id INTEGER REFERENCES accounts (id) ON DELETE CASCADE ON UPDATE NO ACTION,
     name VARCHAR(255) NOT NULL,
-    description TEXT
+    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -45,7 +45,7 @@ CREATE TABLE schedules (
     account_id INTEGER REFERENCES accounts (id) ON DELETE CASCADE ON UPDATE NO ACTION,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    timezone VARCHAR(255) NOT NULL
+    timezone VARCHAR(255) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
